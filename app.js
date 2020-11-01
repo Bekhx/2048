@@ -3,7 +3,11 @@ import moveLeftAndUp from './modules/moveLeftAndUp.js';
 import changeColorSquares from './modules/changeColorSquares.js';
 import score from './modules/score.js';
 
-const gameArea = document.querySelector('.game-area');
+const gameArea = document.querySelector('.game-area'),
+      up = document.querySelector('#up'),
+      down = document.querySelector('#down'),
+      right = document.querySelector('#right'),
+      left = document.querySelector('#left');
 
 const keys = {
   up: 'ArrowUp',
@@ -73,4 +77,35 @@ document.addEventListener('keydown', e => {
     changeColorSquares();
     score();
   }
+});
+
+
+
+up.addEventListener('click', () => {
+  let randomSquareIndex = Math.floor(Math.random() * 16);
+  moveLeftAndUp(axisY);
+  randomSquare(randomSquareIndex);
+  changeColorSquares();
+  score();
+});
+down.addEventListener('click', () => {
+  let randomSquareIndex = Math.floor(Math.random() * 16);
+  moveRightAndDown(axisY);
+  randomSquare(randomSquareIndex);
+  changeColorSquares();
+  score();
+});
+right.addEventListener('click', () => {
+  let randomSquareIndex = Math.floor(Math.random() * 16);
+  moveRightAndDown(axisX);
+  randomSquare(randomSquareIndex);
+  changeColorSquares();
+  score();
+});
+left.addEventListener('click', () => {
+  let randomSquareIndex = Math.floor(Math.random() * 16);
+  moveLeftAndUp(axisX);
+  randomSquare(randomSquareIndex);
+  changeColorSquares();
+  score();
 });
