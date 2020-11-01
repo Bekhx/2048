@@ -9,12 +9,16 @@ function score() {
     }
   });
 
-  function fn(accumulator, a) {
-    return parseInt(accumulator) + parseInt(a);
+  function calcScore(arr) {
+    let sum = 0;
+    for(let i = 0; i < arr.length; i++) {
+      sum += parseInt(arr[i]);
+    }
+    return sum;
   }
 
-  let sum = numbersOfScore.reduce(fn, 0);
-  scoreResult.textContent = sum;
+  scoreResult.textContent = calcScore(numbersOfScore);
+  numbersOfScore = [];
 };
 
 export default score;
