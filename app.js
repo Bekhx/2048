@@ -1,6 +1,7 @@
 import moveRightAndDown from './modules/moveRightAndDown.js';
 import moveLeftAndUp from './modules/moveLeftAndUp.js';
 import changeColorSquares from './modules/changeColorSquares.js';
+import score from './modules/score.js';
 
 const gameArea = document.querySelector('.game-area');
 
@@ -49,23 +50,27 @@ document.addEventListener('keydown', e => {
     moveLeftAndUp(axisY);
     randomSquare(randomSquareIndex);
     changeColorSquares();
+    score();
   }
 
   if (e.code == keys.down) {
     moveRightAndDown(axisY);
     randomSquare(randomSquareIndex);
     changeColorSquares();
+    score();
   }
 
   if (e.code == keys.right) {
     moveRightAndDown(axisX);
     randomSquare(randomSquareIndex);
     changeColorSquares();
+    score();
   }
 
   if (e.code == keys.left) {
     moveLeftAndUp(axisX);
     randomSquare(randomSquareIndex);
     changeColorSquares();
+    score();
   }
 });
