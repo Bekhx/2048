@@ -47,65 +47,42 @@ const axisY = [
   [square[3], square[7], square[11], square[15]]
 ];
 
-document.addEventListener('keydown', e => {
+function moveSquares(fn, arr) {
   let randomSquareIndex = Math.floor(Math.random() * 16);
+  fn(arr);
+  randomSquare(randomSquareIndex);
+  changeColorSquares();
+  score();
+};
 
+document.addEventListener('keydown', e => {
   if (e.code == keys.up) {
-    moveLeftAndUp(axisY);
-    randomSquare(randomSquareIndex);
-    changeColorSquares();
-    score();
+    moveSquares(moveLeftAndUp, axisY);
   }
 
   if (e.code == keys.down) {
-    moveRightAndDown(axisY);
-    randomSquare(randomSquareIndex);
-    changeColorSquares();
-    score();
+    moveSquares(moveRightAndDown, axisY);
   }
 
   if (e.code == keys.right) {
-    moveRightAndDown(axisX);
-    randomSquare(randomSquareIndex);
-    changeColorSquares();
-    score();
+    moveSquares(moveRightAndDown, axisX);
   }
 
   if (e.code == keys.left) {
-    moveLeftAndUp(axisX);
-    randomSquare(randomSquareIndex);
-    changeColorSquares();
-    score();
+    moveSquares(moveLeftAndUp, axisX);
   }
 });
 
 
-
 up.addEventListener('click', () => {
-  let randomSquareIndex = Math.floor(Math.random() * 16);
-  moveLeftAndUp(axisY);
-  randomSquare(randomSquareIndex);
-  changeColorSquares();
-  score();
+  moveSquares(moveLeftAndUp, axisY);
 });
 down.addEventListener('click', () => {
-  let randomSquareIndex = Math.floor(Math.random() * 16);
-  moveRightAndDown(axisY);
-  randomSquare(randomSquareIndex);
-  changeColorSquares();
-  score();
+  moveSquares(moveRightAndDown, axisY);
 });
 right.addEventListener('click', () => {
-  let randomSquareIndex = Math.floor(Math.random() * 16);
-  moveRightAndDown(axisX);
-  randomSquare(randomSquareIndex);
-  changeColorSquares();
-  score();
+  moveSquares(moveRightAndDown, axisX);
 });
 left.addEventListener('click', () => {
-  let randomSquareIndex = Math.floor(Math.random() * 16);
-  moveLeftAndUp(axisX);
-  randomSquare(randomSquareIndex);
-  changeColorSquares();
-  score();
+  moveSquares(moveLeftAndUp, axisX);
 });
