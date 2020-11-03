@@ -1,6 +1,6 @@
 function moveLeftAndUp(arr) {
 
-  function axisXRight(data) {
+  function leftAndUp(data) {
     let newData = [];
     data.forEach(item => {
       if (item.textContent) {
@@ -57,10 +57,10 @@ function moveLeftAndUp(arr) {
     };
     newData = [];
   }
-  axisXRight(arr[0]);
-  axisXRight(arr[1]);
-  axisXRight(arr[2]);
-  axisXRight(arr[3]);
+  leftAndUp(arr[0]);
+  leftAndUp(arr[1]);
+  leftAndUp(arr[2]);
+  leftAndUp(arr[3]);
 };
 
 export default moveLeftAndUp;
